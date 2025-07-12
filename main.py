@@ -1,8 +1,10 @@
-from Script import Branches
-from voiceRecognize import voice_to_text
+from TrainingData.Script import Branches
+from Helper.voiceRecognize import voice_to_text
 import pyttsx3
-from AnswerResponse import ALL_RESPONSE
-from Similarity import Similarity
+from TrainingData.AnswerResponse import ALL_RESPONSE
+from Helper.Similarity import Similarity
+from Helper.CheckQuestionExist import checkDB
+import os
 
 def speak(text):
     engine = pyttsx3.init()
@@ -51,29 +53,36 @@ def return_AIResponse(branch, res_history):
         return data["AIResponse"]
 
 def main():
-    global current_branch
-    global response_history
-    current_branch=0
-    response_history = []
-    while True:
-        AIResponse= return_AIResponse(current_branch,response_history)
-        print("AIResponse:-", AIResponse)
-        FindSimilairty.generateSimilarityCosine(AIResponse)
-        speak(AIResponse)
-        if current_branch is False:
-            break
-        allPossibleAnswer = list(return_response_key(current_branch, response_history))
-        print(allPossibleAnswer)
-        voice_input = voice_to_text_input.take_speech_input()
-        while voice_input is None:
-            speak("Sir/Mam can you repeat yourself")
+    os.makedirs("ModelTrainData", exist_ok=True)
+    with open("ModelTrainData/textData.txt", "a") as file:
+        file.write("\n{\n")
+        if checkDB(Branches) is False:
+            return
+        global current_branch
+        global response_history
+        current_branch=0
+        response_history = []
+        while True:
+            AIResponse= return_AIResponse(current_branch,response_history)
+            file.write(f"AI:-{AIResponse}\n")
+            print("AIResponse:-", AIResponse)
+            FindSimilairty.generateSimilarityCosine(AIResponse)
+            speak(AIResponse)
+            if current_branch is False:
+                break
+            allPossibleAnswer = list(return_response_key(current_branch, response_history))
+            print(allPossibleAnswer)
             voice_input = voice_to_text_input.take_speech_input()
-            print(voice_input)
-        # voice_input = input("User:-")
-        print("voice input")
-        response_result = FindSimilairty.findSimilarity(voice_input)
-        response_history.append(response_result)
-    print("Finished")
+            while voice_input is None:
+                speak("Sir/Mam can you repeat yourself")
+                voice_input = voice_to_text_input.take_speech_input()
+                print(voice_input)
+            print("voice input")
+            file.write(f"User:-{voice_input}\n")
+            response_result = FindSimilairty.findSimilarity(voice_input)
+            response_history.append(response_result)
+        file.write("}\n")
+        print("Finished")
 
 
     

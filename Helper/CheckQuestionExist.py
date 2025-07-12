@@ -1,5 +1,5 @@
-from Script import Branches
-from AnswerResponse import ALL_RESPONSE
+from TrainingData.Script import Branches
+from TrainingData.AnswerResponse import ALL_RESPONSE
 
 notExistQuestion= []
 notExistResponse = []
@@ -21,10 +21,16 @@ def cheackQuestionExistInDB(data):
         cheackQuestionExistInDB(data["response"][res])
 
 
+def checkDB(Branch):
+    for branch in Branches:
+        cheackQuestionExistInDB(branch)
 
-for branch in Branches:
-    cheackQuestionExistInDB(branch)
+    if len(notExistQuestion)> 0:
+        print("There is missing question in AnswerResponse Data:-", notExistQuestion)
+        return False
 
-print("NOt Exist:-",notExistQuestion)
-print("Not Exist Response:-", notExistResponse)
-print("Exist Response:-",existResponse)
+    if len(notExistResponse)> 0:
+        print("There is something missing in AnswerResponse Data:-", notExistResponse)
+        return False
+
+    return True

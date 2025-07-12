@@ -1,0 +1,36 @@
+
+{
+AI:-Hello and very Good Morning Sir, May I speak with {policy_holder_name}?
+User:-yes you can
+AI:-My name is Veena and I am an Executive calling on behalf of ValuEnable Life Insurance Co. Ltd, this is a service call with regards to your life insurance policy. Is this the right time to speak to you regarding the renewal of your policy?
+User:-ok I
+AI:-Let me start by confirming your policy details. Your policy is ValuEnable Life {product_name} insurance policy number is {policy_number}, started on {policy_start_date}, and you've paid {total_premium_paid} so far. The premium of {outstanding_amount} due on {premium_due_date} is still pending, and your policy is currently in �Discontinuance� status, with no life insurance cover. Could you please let me know why you haven�t been able to pay the premium?
+User:-I don't have
+AI:-I would like to inform you that the due date for renewal premium payment for your policy was on {premium_due_date}, the grace period for your policy is over due to non-payment of the regular premium and you are losing the benefit of your plan. Would you like to know what your policy's benefits you could get if you resume paying premiums?
+User:-no I can't
+AI:-Sir, you will get maximum Allocation in the Invested Fund i. e % of Premium which will boost up your investment. Allocation in renewal premiums is much higher than the initial / first year premium; hence premium payment towards renewals is always monetarily beneficial because of maximum money will be invested into the chosen funds. Addition of Loyalty Units would help to fetch good return in long run and all Renewal premium payments also provide a tax saving benefit under Sec 80(c), 10 (10(D)) as per prevailing provisions of the Indian Income Tax act. Does this help you make a more informed decision about your policy? 
+User:-prepaid I have already paid my
+AI:-You can opt for the Partial Withdrawal option after completing 5 years of the policy i.e ,lock-in period. If premiums stop before the lock-in period ends, the policy will discontinue and growth will be limited to 4-4.5% returns. Also you will lose your sum assured value of {sum_assured}. If you choose to continue with this policy at the time of maturity you will receive {fund_value}. Would you be willing to pay your premium now?
+User:-yes yes
+AI:-When would be a convenient time to call you again to provide the information about your policy with us? Please can you give a time and date?
+User:-today today
+AI:- Thank you sir/maam, I will arrange your call back at the given time.
+User:-ok ok
+AI:-For any further assistance with your policy, feel free to call our helpline at 1800 209 7272, message us on whatsapp on 8806 727272, mail us or visit our website. Thank you for your valuable time. Have a great day ahead.
+}
+
+{
+AI:-Hello and very Good Morning Sir, May I speak with {policy_holder_name}?
+User:-yes you can
+AI:-My name is Veena and I am an Executive calling on behalf of ValuEnable Life Insurance Co. Ltd, this is a service call with regards to your life insurance policy. Is this the right time to speak to you regarding the renewal of your policy?
+User:-yes yes I can talk right now you can go here
+AI:-Let me start by confirming your policy details. Your policy is ValuEnable Life {product_name} insurance policy number is {policy_number}, started on {policy_start_date}, and you've paid {total_premium_paid} so far. The premium of {outstanding_amount} due on {premium_due_date} is still pending, and your policy is currently in �Discontinuance� status, with no life insurance cover. Could you please let me know why you haven�t been able to pay the premium?
+User:-I have plenty of money
+AI:-I would like to inform you that the due date for renewal premium payment for your policy was on {premium_due_date}, the grace period for your policy is over due to non-payment of the regular premium and you are losing the benefit of your plan. Would you like to know what your policy's benefits you could get if you resume paying premiums?
+User:-no I don't want to know about that
+AI:-Sir, you will get maximum Allocation in the Invested Fund i. e % of Premium which will boost up your investment. Allocation in renewal premiums is much higher than the initial / first year premium; hence premium payment towards renewals is always monetarily beneficial because of maximum money will be invested into the chosen funds. Addition of Loyalty Units would help to fetch good return in long run and all Renewal premium payments also provide a tax saving benefit under Sec 80(c), 10 (10(D)) as per prevailing provisions of the Indian Income Tax act. Does this help you make a more informed decision about your policy? 
+User:-I have already paid by premium
+AI:-You can opt for the Partial Withdrawal option after completing 5 years of the policy i.e ,lock-in period. If premiums stop before the lock-in period ends, the policy will discontinue and growth will be limited to 4-4.5% returns. Also you will lose your sum assured value of {sum_assured}. If you choose to continue with this policy at the time of maturity you will receive {fund_value}. Would you be willing to pay your premium now?
+User:-no no
+AI:-For any further assistance with your policy, feel free to call our helpline at 1800 209 7272, message us on whatsapp on 8806 727272, mail us or visit our website. Thank you for your valuable time. Have a great day ahead.
+}

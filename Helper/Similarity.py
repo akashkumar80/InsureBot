@@ -1,4 +1,4 @@
-from AnswerResponse import ALL_RESPONSE
+from TrainingData.AnswerResponse import ALL_RESPONSE
 from sentence_transformers import SentenceTransformer, util
 
 # def findSimilarity(question, query):
