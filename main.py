@@ -1,22 +1,8 @@
 from Script import Branches
 from voiceRecognize import voice_to_text
 import pyttsx3
-from sentence_transformers import SentenceTransformer, util
-
-def findSimilarity(listString, query):
-    corpus_embedding = Similarity_Cosine_Model.encode(listString, convert_to_tensor = True)
-    query_embedding = Similarity_Cosine_Model.encode(query, convert_to_tensor = True)
-
-    cosineSimilarity = util.cos_sim(query_embedding,corpus_embedding)
-
-    maxIndex = 0
-    maxValue = cosineSimilarity[0][0]
-
-    for i, score in enumerate(cosineSimilarity[0]):
-        if score>maxValue:
-            maxIndex = i
-
-    return maxIndex
+from AnswerResponse import ALL_RESPONSE
+from Similarity import Similarity
 
 def speak(text):
     engine = pyttsx3.init()
@@ -38,7 +24,6 @@ def return_response_key(branch, response_history):
 def return_AIResponse(branch, res_history):
     global current_branch
     global response_history
-    print("Branch:-", branch, "History:-",res_history)
     data = Branches[branch]
     for i in range(len(res_history)-1):
         data= data["response"][res_history[i]]
@@ -73,15 +58,20 @@ def main():
     while True:
         AIResponse= return_AIResponse(current_branch,response_history)
         print("AIResponse:-", AIResponse)
+        FindSimilairty.generateSimilarityCosine(AIResponse)
         speak(AIResponse)
         if current_branch is False:
             break
         allPossibleAnswer = list(return_response_key(current_branch, response_history))
         print(allPossibleAnswer)
         voice_input = voice_to_text_input.take_speech_input()
-        print(voice_input)
-        response_result = allPossibleAnswer[findSimilarity(allPossibleAnswer, voice_input)]
-        print(response_result)
+        while voice_input is None:
+            speak("Sir/Mam can you repeat yourself")
+            voice_input = voice_to_text_input.take_speech_input()
+            print(voice_input)
+        # voice_input = input("User:-")
+        print("voice input")
+        response_result = FindSimilairty.findSimilarity(voice_input)
         response_history.append(response_result)
     print("Finished")
 
@@ -89,7 +79,7 @@ def main():
     
 current_branch =0
 response_history = []
-Similarity_Cosine_Model = SentenceTransformer('all-mpnet-base-v2')
 voice_to_text_input = voice_to_text()
 if __name__== "__main__":
+    FindSimilairty = Similarity()
     main()
