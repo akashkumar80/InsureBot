@@ -17,22 +17,26 @@ This is an intelligent voice/text-based chatbot built to assist users in [brief 
 ## Project Structure
 
 InsureBot/
+├── main.py                        # Main execution file
+├── CustomerData.py               # Includes Customer Data
+├── README.md                     # Project documentation
+├── requirements.txt              # Required Python libraries
 │
-├── main.py # Main execution file
-├── CustomerData.py # include Customer Data
-├── README.me   # Project Documentation
-├── requirement.txtx    # Include text file for required python library
-├── Helper
-|   ├── CheckQuestionExist.py # Check that DB is Compatible or NOT
-|   ├── Similarity.py   # Find Similarity of user response with default response
-|   ├── voiceRecognition.py # Include Voice Input File
-├── MOdelTrainData
-|   ├──textData.txt # conatain data of all communication between user and BOT
-├── TrainingData
-|   ├── AllResponses.py  #Inlcude All Possible Response of user
-|   ├── AnserResponse.py    # Include User Response based on Question 
-|   ├── Script.py   # Include Rule Base for Make Decision
-├── Voice Data  # Inlcude Voice Data Provided audio format
+├── Helper/                       
+│   ├── CheckQuestionExist.py     # Checks if DB is compatible
+│   ├── Similarity.py             # Finds similarity between user and default responses
+│   └── voiceRecognition.py       # Handles voice input
+│
+├── ModelTrainData/
+│   └── textData.txt              # Logs all communication between user and bot
+│
+├── TrainingData/
+│   ├── AllResponses.py           # All possible user responses
+│   ├── AnserResponse.py          # Responses based on specific questions
+│   └── Script.py                 # Rule-based decision-making engine
+│
+└── VoiceData/                    # Folder for storing voice data (audio files)
+
 
 ## Setup
 
