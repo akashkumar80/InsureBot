@@ -16,6 +16,7 @@ This is an intelligent voice/text-based chatbot built to assist users in [brief 
 
 ## Project Structure
 
+```bash
 InsureBot/
 ├── main.py                        # Main execution file
 ├── CustomerData.py               # Includes Customer Data
@@ -36,7 +37,7 @@ InsureBot/
 │   └── Script.py                 # Rule-based decision-making engine
 │
 └── VoiceData/                    # Folder for storing voice data (audio files)
-
+```
 
 ## Setup
 
