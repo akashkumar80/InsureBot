@@ -5,6 +5,7 @@ from TrainingData.AnswerResponse import ALL_RESPONSE
 from Helper.Similarity import Similarity
 from Helper.CheckQuestionExist import checkDB
 import os
+from CustomerData import customer_data
 
 def speak(text):
     engine = pyttsx3.init()
@@ -65,9 +66,9 @@ def main():
         while True:
             AIResponse= return_AIResponse(current_branch,response_history)
             file.write(f"AI:-{AIResponse}\n")
-            print("AIResponse:-", AIResponse)
+            print("AIResponse:-", AIResponse.format(**customer_data))
             FindSimilairty.generateSimilarityCosine(AIResponse)
-            speak(AIResponse)
+            speak(AIResponse.format(**customer_data))
             if current_branch is False:
                 break
             allPossibleAnswer = list(return_response_key(current_branch, response_history))
