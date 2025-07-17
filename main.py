@@ -82,17 +82,17 @@ def main():
             endTime = time.time()
             GENERATE_SIMILARITY_TIME.append(endTime-startTime)
 
-            # speak(AIResponse.format(**customer_data))
+            speak(AIResponse.format(**customer_data))
             if current_branch is False:
                 break
             allPossibleAnswer = list(return_response_key(current_branch, response_history))
             print(allPossibleAnswer)
-            # voice_input = voice_to_text_input.take_speech_input()
-            # while voice_input is None:
-            #     speak("Sir/Mam can you repeat yourself")
-            #     voice_input = voice_to_text_input.take_speech_input()
-            #     print(voice_input)
-            voice_input = input("User:-")
+            voice_input = voice_to_text_input.take_speech_input()
+            while voice_input is None:
+                speak("Sir/Mam can you repeat yourself")
+                voice_input = voice_to_text_input.take_speech_input()
+                print(voice_input)
+            # voice_input = input("User:-")
             file.write(f"User:-{voice_input}\n")
 
             startTime = time.time()
