@@ -19,6 +19,7 @@ This is an intelligent voice/text-based chatbot built to assist users in [brief 
 ```bash
 InsureBot/
 ├── main.py                        # Main execution file
+├── CustomerData.py                 #Conatins Data Of User from whom we want to connect
 ├── CustomerData.py               # Includes Customer Data
 ├── README.md                     # Project documentation
 ├── requirements.txt              # Required Python libraries
@@ -59,7 +60,24 @@ cd InsureBot
 pip install -r requirements.txt
 ```
 
-### 4. Run ChatBot
+### 4 Save Data of Customer
+
+```bash
+customer_data = {
+    "policy_holder_name" : "Akash Kumar",
+    "policy_number" : "21201",
+    "product_name" : "InsureBot",
+    "policy_start_date" : "21 march 2025",
+    "total_premium_paid" : "0",
+    "premium_due_date" : "21 March 2025",
+    "sum_assured" : "100",
+    "fund_value" : "one lakh",
+    "outstanding_amount": "one Lakh",
+    "percent": "10",
+}
+```
+
+### 5. Run ChatBot
 
 ```bash
 python main.py
